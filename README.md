@@ -5,6 +5,8 @@
 
 RanTodd is a Discord ranking bot. It offers from a simple rank card to a complex leaderboard.
 
+Discord: https://discord.gg/SXxJTvmAz3
+
 # How to self-host?
 You can get started [here](./docs/get-started/ddev.md).
 
