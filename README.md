@@ -7,6 +7,9 @@ RanTodd is a Discord ranking bot. It offers from a simple rank card to a complex
 
 Discord: https://discord.gg/SXxJTvmAz3
 
+# Note
+The project lost its original purpose a while ago and the development started decreasing until it stopped completely. RanTodd is now abandoned and won't receive updates.
+
 # How to self-host?
 You can get started [here](./docs/get-started/ddev.md).
 
