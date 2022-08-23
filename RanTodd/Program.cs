@@ -60,3 +60,5 @@ app.UseEndpoints(endpoints =>
 {
     endpoints.MapControllers();
 });
+
+await app.RunAsync();
