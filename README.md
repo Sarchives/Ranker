@@ -3,7 +3,7 @@
 ![CodeQL workflow status](https://github.com/RanTodd-Team/RanTodd/actions/workflows/codeql-analysis.yml/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/rantodd-team/rantodd/badge)](https://www.codefactor.io/repository/github/rantodd-team/rantodd)
 
-RanTodd is a Discord ranking bot. It offers from a simple rank card to a complex leaderboard.
+RanTodd is a Discord ranking bot. It offers customisable rank cards and a leaderboard.
 
 Discord: https://discord.gg/SXxJTvmAz3
 
