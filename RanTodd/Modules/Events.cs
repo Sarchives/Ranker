@@ -52,7 +52,7 @@ namespace RanTodd
             if (e.Member.IsBot) return;
 
             Rank rank = await _database.Ranks.GetAsync(e.Member.Id, e.Guild.Id);
-            rank.Avatar = e.Member.GuildAvatarUrl;
+            rank.Avatar = e.Member.GetAvatarUrl(DSharpPlus.ImageFormat.Png, 128);
             rank.Discriminator = e.Member.Discriminator;
             rank.Username = e.Member.Username;
             await _database.Ranks.UpsertAsync(e.Member.Id, e.Guild.Id, rank, e.Guild);
@@ -64,7 +64,7 @@ namespace RanTodd
 
             Rank rank = new()
             {
-                Avatar = e.Member.AvatarUrl,
+                Avatar = e.Member.GetAvatarUrl(DSharpPlus.ImageFormat.Png, 128),
                 Username = e.Member.Username,
                 Discriminator = e.Member.Discriminator,
                 LastCreditDate = DateTimeOffset.UnixEpoch
@@ -97,7 +97,7 @@ namespace RanTodd
             if (e.Author.IsBot) return;
 
             Rank rank = await _database.Ranks.GetAsync(e.Author.Id, e.Guild.Id);
-            rank.Avatar = e.Author.AvatarUrl;
+            rank.Avatar = e.Author.GetAvatarUrl(DSharpPlus.ImageFormat.Png, 128);
             rank.Username = e.Author.Username;
             rank.Discriminator = e.Author.Discriminator;
 
@@ -170,7 +170,7 @@ namespace RanTodd
                                                     User = ulong.Parse(userId),
                                                     Username = player["username"].Value<string>(),
                                                     Discriminator = player["discriminator"].Value<string>(),
-                                                    Avatar = avatarHash != "" ? "https://cdn.discordapp.com/avatars/" + userId + "/" + avatarHash + ".png?size=1024" : "https://cdn.discordapp.com/embed/avatars/1.png",
+                                                    Avatar = avatarHash != "" ? "https://cdn.discordapp.com/avatars/" + userId + "/" + avatarHash + ".png?size=128" : "https://cdn.discordapp.com/embed/avatars/1.png",
                                                     Fleuron = false
                                                 };
                                                 _database.Ranks.UpsertAsync(ulong.Parse(userId), e.Guild.Id, rank, e.Guild);

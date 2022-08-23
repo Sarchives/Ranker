@@ -18,7 +18,6 @@ namespace RanTodd
                 Guild = settings.Guild.ToString();
                 MinRange = settings.MinRange.ToString();
                 MaxRange = settings.MaxRange.ToString();
-                Banner = settings.Banner;
                 ExcludedChannels = JsonConvert.SerializeObject(settings.ExcludedChannels);
             }
 
@@ -29,8 +28,6 @@ namespace RanTodd
 
             public string MaxRange { get; set; }
 
-            public string Banner { get; set; }
-
             public string ExcludedChannels { get; set; }
 
             public Settings ToSettings()
@@ -40,7 +37,6 @@ namespace RanTodd
                     Guild = ulong.Parse(Guild),
                     MinRange = int.Parse(MinRange),
                     MaxRange = int.Parse(MaxRange),
-                    Banner = Banner,
                     ExcludedChannels = JsonConvert.DeserializeObject<List<ulong>>(ExcludedChannels)
                 };
             }
@@ -61,7 +57,6 @@ namespace RanTodd
                     Guild = guildId,
                     MinRange = 15,
                     MaxRange = 26,
-                    Banner = null,
                     ExcludedChannels = new List<ulong>()
                 };
                 return rank;

@@ -69,7 +69,6 @@ namespace RanTodd
                                 {
                                     "settings",
                                     new Dictionary<string, object>() {
-                                        { "banner", settings.Banner },
                                         { "minRange", settings.MinRange },
                                         { "maxRange", settings.MaxRange }
                                     }

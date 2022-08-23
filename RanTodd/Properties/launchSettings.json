@@ -20,7 +20,8 @@
       "launchBrowser": true,
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "RANTODD_TOKEN": "ODg5MjgxNjcyOTg4NzQ5ODU1.GURik9.ZvSIc0Eah92tCfCaVd3THAEkNi0DXDvPcRkPd8"
       }
     }
   }

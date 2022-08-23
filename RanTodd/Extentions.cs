@@ -24,7 +24,7 @@ namespace RanTodd
             return new PathCollection(corner1, corner2, corner3, corner4, rect1, rect2, rect3);
         }
 
-        public static Image RoundCorners(Image<Rgba32> image, float radius)
+        public static Image RoundCorners(Image image, float radius)
         {
             return image.Clone(x => ApplyRoundedCorners(x, radius));
         }

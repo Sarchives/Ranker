@@ -49,11 +49,6 @@ namespace RanTodd
                                 settings.MaxRange = jsonParsedBody["maxRange"]?.Value<int>() ?? settings.MaxRange;
                             }
                             catch { }
-                            try
-                            {
-                                settings.Banner = jsonParsedBody["banner"]?.Value<string>() ?? settings.Banner;
-                            }
-                            catch { }
 
                             await _database.Settings.UpsertAsync(guildId, settings);
 
