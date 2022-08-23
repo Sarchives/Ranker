@@ -1,3 +1,4 @@
+using dotenv.net;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -19,6 +20,8 @@ builder.Services.AddCors(options =>
             .AllowAnyHeader();
         });
 });
+
+DotEnv.Load();
 
 string folder = "";
 
