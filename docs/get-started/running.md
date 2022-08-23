@@ -13,9 +13,9 @@
 ## Docker
 This method assumes you've already installed Docker Compose. If you haven't, visit [this link](https://docs.docker.com/compose/install/#install-compose) to find out how.
 
-1. Rename `.env.example` to `.env` (outside RanTodd folder)
-2. Set the bot token in **step 8, Set up a bot account** in the `RANTODD_TOKEN` field
-3. Do the same with `RANTODD_CLIENT_SECRET` but with your bot client secret.
+1. Rename `.env.example` to `.env` (outside Ranker folder)
+2. Set the bot token in **step 8, Set up a bot account** in the `RANKER_TOKEN` field
+3. Do the same with `RANKER_CLIENT_SECRET` but with your bot client secret.
 4. Save your changes and run `docker-compose up -d`
    
    **Note:** Should you wish to rebuild the bot, add `--build` to the previous command.
@@ -23,10 +23,10 @@ This method assumes you've already installed Docker Compose. If you haven't, vis
 ## Standalone
 You'll need .NET 6 SDK for this method. You can download the latest version [here](https://dotnet.microsoft.com/download/dotnet/6.0).
 
-1. Rename `.env.example` to `.env` (inside RanTodd folder)
-2. Set the bot token in **step 8, Set up a bot account** in the `RANTODD_TOKEN` field
-3. Do the same with `RANTODD_CLIENT_SECRET` but with your bot client secret.
-4. Open a command line window and `cd` to RanTodd. Make sure that `RanTodd.csproj` exists in the selected folder.
+1. Rename `.env.example` to `.env` (inside Ranker folder)
+2. Set the bot token in **step 8, Set up a bot account** in the `RANKER_TOKEN` field
+3. Do the same with `RANKER_CLIENT_SECRET` but with your bot client secret.
+4. Open a command line window and `cd` to Ranker. Make sure that `Ranker.csproj` exists in the selected folder.
 5. Execute `dotnet build` and wait for the build to finish.
 6. Execute `dotnet run` to run the bot.
 
