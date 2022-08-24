@@ -28,7 +28,7 @@ namespace Ranker
                 Username = rank.Username;
                 Discriminator = rank.Discriminator;
                 Avatar = rank.Avatar;
-                Style = rank.Style.ToString();
+                Style = rank.Style?.ToString();
             }
 
             [PrimaryKey]
