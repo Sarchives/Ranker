@@ -12,14 +12,16 @@ namespace Ranker
 
         public static IPathCollection GoodBuildCorners(int imageWidth, int imageHeight, float cornerRadius)
         {
-            var rect1 = new RectangularPolygon(cornerRadius / 2, imageHeight - cornerRadius, cornerRadius / 2, imageHeight - (cornerRadius / 2));
-            var rect2 = new RectangularPolygon(imageWidth - (cornerRadius / 2), imageHeight - cornerRadius, cornerRadius / 2, imageHeight - (cornerRadius / 2));
-            var rect3 = new RectangularPolygon(cornerRadius / 2, 0, imageWidth - cornerRadius, imageHeight);
+            float cornerRadiusHalf = cornerRadius / 2;
 
-            IPath corner1 = new EllipsePolygon(cornerRadius / 2, cornerRadius / 2, cornerRadius / 2);
-            IPath corner2 = new EllipsePolygon(cornerRadius / 2, imageHeight - (cornerRadius / 2), cornerRadius / 2);
-            IPath corner3 = new EllipsePolygon(imageWidth - (cornerRadius / 2), cornerRadius / 2, cornerRadius / 2);
-            IPath corner4 = new EllipsePolygon(imageWidth - (cornerRadius / 2), imageHeight - (cornerRadius / 2), cornerRadius / 2);
+            var rect1 = new RectangularPolygon(cornerRadiusHalf, imageHeight - cornerRadius, cornerRadiusHalf, imageHeight - cornerRadiusHalf);
+            var rect2 = new RectangularPolygon(imageWidth - cornerRadiusHalf, imageHeight - cornerRadius, cornerRadiusHalf, imageHeight - cornerRadiusHalf);
+            var rect3 = new RectangularPolygon(cornerRadiusHalf, 0, imageWidth - cornerRadius, imageHeight);
+
+            IPath corner1 = new EllipsePolygon(cornerRadiusHalf, cornerRadiusHalf, cornerRadiusHalf);
+            IPath corner2 = new EllipsePolygon(cornerRadiusHalf, imageHeight - cornerRadiusHalf, cornerRadiusHalf);
+            IPath corner3 = new EllipsePolygon(imageWidth - cornerRadiusHalf, cornerRadiusHalf, cornerRadiusHalf);
+            IPath corner4 = new EllipsePolygon(imageWidth - cornerRadiusHalf, imageHeight - (cornerRadiusHalf), cornerRadiusHalf);
 
             return new PathCollection(corner1, corner2, corner3, corner4, rect1, rect2, rect3);
         }
