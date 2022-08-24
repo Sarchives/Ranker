@@ -171,7 +171,7 @@ namespace Ranker
                                                     Username = player["username"].Value<string>(),
                                                     Discriminator = player["discriminator"].Value<string>(),
                                                     Avatar = avatarHash != "" ? "https://cdn.discordapp.com/avatars/" + userId + "/" + avatarHash + ".png?size=128" : "https://cdn.discordapp.com/embed/avatars/1.png",
-                                                    Fleuron = false
+                                                    Style = "zeealeid"
                                                 };
                                                 _database.Ranks.UpsertAsync(ulong.Parse(userId), e.Guild.Id, rank, e.Guild);
                                             });

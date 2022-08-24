@@ -29,9 +29,9 @@ namespace Ranker
                     ulong userId = ulong.Parse(jsonParsed["id"].Value<string>());
                     Rank rankCard = await _database.Ranks.GetAsync(userId, guildId);
                     return Ok(
-                        new Dictionary<string, bool>()
+                        new Dictionary<string, string>()
                         {
-                            { "fleuron", rankCard.Fleuron }
+                            { "style", rankCard.Style }
                         }
                     );
                 }
@@ -60,13 +60,20 @@ namespace Ranker
                     Rank rankCard = await _database.Ranks.GetAsync(userId, guildId);
                     using (StreamReader stream = new StreamReader(Request.Body))
                     {
-                        rankCard.Fleuron = JObject.Parse(await stream.ReadToEndAsync())["fleuron"].Value<bool>();
-                        await _database.Ranks.UpsertAsync(userId, guildId, rankCard, null);
-                        return Ok(
-                            new Dictionary<string, bool>() {
-                                { "fleuron", rankCard.Fleuron }
-                            }
-                        );
+                        string style = JObject.Parse(await stream.ReadToEndAsync())["style"].Value<string>();
+                        if (style == "zeealeid" || style == "fleuron" || style == "custom")
+                        {
+                            rankCard.Style = style;
+                            await _database.Ranks.UpsertAsync(userId, guildId, rankCard, null);
+                            return Ok(
+                                new Dictionary<string, string>() {
+                                { "style", rankCard.Style }
+                                }
+                            );
+                        } else
+                        {
+                            return BadRequest();
+                        }
                     }
                 }
             }

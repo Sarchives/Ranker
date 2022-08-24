@@ -30,12 +30,16 @@ namespace Ranker
             if (rank.Xp > 0)
             {
                 MemoryStream stream;
-                if (currentUserRank.Fleuron)
+                if (currentUserRank.Style == "fleuron")
                 {
                     stream = await Commands.RankFleuron(_database, ctx.Guild, user, rank);
                 }
-                else
+                else if (currentUserRank.Style == "zeealeid")
                 {
+                    stream = await Commands.RankZeealeid(_database, ctx.Guild, user, rank);
+                } else
+                {
+                    // CHANGE!!!
                     stream = await Commands.RankZeealeid(_database, ctx.Guild, user, rank);
                 }
 
@@ -63,12 +67,17 @@ namespace Ranker
             if (rank.Xp > 0)
             {
                 MemoryStream stream;
-                if (currentUserRank.Fleuron)
+                if (currentUserRank.Style == "fleuron")
                 {
                     stream = await Commands.RankFleuron(_database, ctx.Guild, ctx.TargetMember, rank);
                 }
+                else if (currentUserRank.Style == "zeealeid")
+                {
+                    stream = await Commands.RankZeealeid(_database, ctx.Guild, ctx.TargetMember, rank);
+                }
                 else
                 {
+                    // CHANGE!!!
                     stream = await Commands.RankZeealeid(_database, ctx.Guild, ctx.TargetMember, rank);
                 }
 
@@ -98,8 +107,18 @@ namespace Ranker
             }
         }
 
-        [SlashCommand("fleuron", "Enables or disables Flueron's style.")]
-        public async Task FleuronCommand(InteractionContext ctx, [Option("enable", "True for enabling, False for disabling")] bool enabled)
+        public enum Styles
+        {
+            [ChoiceName("Zeealeid (default)")]
+            zeealeid,
+            [ChoiceName("Fleuron")]
+            fleuron,
+            [ChoiceName("Custom (HTML/CSS)")]
+            custom
+        }
+
+        [SlashCommand("style", "Changes the rank card style.")]
+        public async Task FleuronCommand(InteractionContext ctx, [Option("style", "Choose a style")] Styles styles = Styles.zeealeid)
         {
             await ctx.CreateResponseAsync(
                 InteractionResponseType.DeferredChannelMessageWithSource,
@@ -107,16 +126,8 @@ namespace Ranker
 
             Rank rank = await _database.Ranks.GetAsync(ctx.Member.Id, ctx.Guild.Id);
 
-            if (enabled)
-            {
-                rank.Fleuron = true;
-                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Flueron's style enabled!"));
-            }
-            else
-            {
-                rank.Fleuron = false;
-                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Flueron's style disabled!"));
-            }
+                rank.Style = styles.ToString();
+                await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Style changed!"));
 
             await _database.Ranks.UpsertAsync(ctx.Member.Id, ctx.Guild.Id, rank, ctx.Guild);
         }

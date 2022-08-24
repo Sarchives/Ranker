@@ -27,12 +27,18 @@ namespace Ranker
             if (rank.Xp > 0)
             {
                 MemoryStream stream;
-                if (currentUserRank.Fleuron)
+
+                if (currentUserRank.Style == "fleuron")
                 {
                     stream = await Commands.RankFleuron(_database, ctx.Guild, user, rank);
                 }
+                else if (currentUserRank.Style == "zeealeid")
+                {
+                    stream = await Commands.RankZeealeid(_database, ctx.Guild, user, rank);
+                }
                 else
                 {
+                    // CHANGE!!!
                     stream = await Commands.RankZeealeid(_database, ctx.Guild, user, rank);
                 }
 

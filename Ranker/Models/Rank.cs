@@ -26,6 +26,6 @@
 
         public string Avatar { get; set; }
 
-        public bool Fleuron { get; set; }
+        public string Style { get; set; }
     }
 }
