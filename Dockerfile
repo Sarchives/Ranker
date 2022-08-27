@@ -1,13 +1,10 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build-env
 WORKDIR /app
 
-# Copy csproj and restore as distinct layers
-COPY Ranker/*.csproj ./
-RUN dotnet restore
-
 # Copy source code and build
-COPY Ranker ./
-RUN dotnet build -c Release -o out
+COPY ./ ./
+RUN dotnet restore
+RUN dotnet build -c Release -o out ./Ranker/Ranker.csproj
 
 # Build runtime image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
