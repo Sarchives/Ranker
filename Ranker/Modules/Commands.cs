@@ -46,7 +46,6 @@ namespace Ranker
                 var font2 = new Font(family2, 38f);
                 var font3 = new Font(family2, 24f);
 
-
                 TextOptions textOptions = new TextOptions(font1)
                 {
                     Origin = new Point(934 - 107, 193 - 65),
