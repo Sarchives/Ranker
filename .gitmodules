@@ -1,0 +1,3 @@
+[submodule "sqlite-net"]
+	path = sqlite-net
+	url = https://github.com/Ranker-Team/sqlite-net.git
