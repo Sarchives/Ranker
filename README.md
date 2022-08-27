@@ -12,8 +12,7 @@ You can get started [here](./docs/get-started/ddev.md).
 
 # Contributors
 We'd like to thank our contributors for making this possible. 
-- [@SapphireDisD](https://github.com/SapphireDisD): Ranker's author.
-- [@dongle-the-gadget](https://github.com/dongle-the-gadget): Ranker's main dev.
+- [@SapphireDisD](https://github.com/SapphireDisD), [@dongle-the-gadget](https://github.com/dongle-the-gadget): Ranker's authors.
 - [@Ahmed605](https://github.com/Ahmed605): Ranker's main rank card main developer.
 - [@zeealeid](https://github.com/zeealeid): Ranker's main rank card main designer.
 - [@KojiOdyssey](https://github.com/KojiOdyssey), [@dAKirby309](https://github.com/dAKirby309), [@itsWindows11](https://github.com/itsWindows11): Ranker's main rank card design collaborators.
