@@ -23,6 +23,8 @@ builder.Services.AddCors(options =>
 
 DotEnv.Load();
 
+SQLitePCL.Batteries.Init();
+
 string folder = "";
 
 if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
