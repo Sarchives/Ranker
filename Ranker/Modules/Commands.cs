@@ -125,7 +125,6 @@ namespace Ranker
             string username = preUsername + (preUsername != prePreUsername ? "..." : "");
             string discriminator = rank.Discriminator ?? user.Discriminator;
             string pfpUrl = rank.Avatar ?? user.GetAvatarUrl(DSharpPlus.ImageFormat.Png, 128);  
-            Console.WriteLine(pfpUrl);
             ulong level = rank.Level;
 
             ulong gottenXp = rank.Xp;

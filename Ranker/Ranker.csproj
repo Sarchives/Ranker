@@ -19,12 +19,6 @@
     <PackageReference Include="dotenv.net" Version="3.1.1" />
   </ItemGroup>
   <ItemGroup>
-    <None Remove="DSharpPlus.CommandsNext" />
-    <None Remove="sqlite-net-pcl" />
-    <None Remove="SixLabors.ImageSharp" />
-    <None Remove="dotenv.net" />
-  </ItemGroup>
-  <ItemGroup>
     <None Update="config.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None> 
