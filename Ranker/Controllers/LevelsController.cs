@@ -27,10 +27,15 @@ namespace Ranker
                     var response = await client.GetAsync($"https://discord.com/api/v9/guilds/{id}");
                     string responseJson = await response.Content.ReadAsStringAsync();
                     JToken jsonParsed = JToken.Parse(responseJson);
-                    IEnumerable<Rank> ranks = (await _database.Ranks.GetAsync(id))
+
+                    List<Rank> ranks = (await _database.Ranks.GetAsync(id))
                         .OrderByDescending(f => f.TotalXp)
-                        .Chunk(100)
-                        .ElementAt(page);
+                        .ToList();
+
+                    if (ranks.Count > 100)
+                    {
+                        ranks = ranks.Chunk(100).ElementAt(page).ToList();
+                    }
 
                     Settings settings = await _database.Settings.GetAsync(id);
 
