@@ -73,8 +73,8 @@ namespace Ranker
                                         { "maxRange", settings.MaxRange }
                                     }
                                 },
-                                { "roles", roles.OrderBy(x => x.Level) },
-                                { "players", ranks }
+                                { "roles", roles.ConvertAll(new Converter<Role, RoleStringy>(StringifyRole)).OrderBy(x => x.Level) },
+                                { "players", ranks.ToList().ConvertAll(new Converter<Rank, RankStringy>(StringifyRank)) }
                             }
                         );
                     }
@@ -84,6 +84,36 @@ namespace Ranker
             {
                 return BadRequest();
             }
+        }
+
+        public static RoleStringy StringifyRole(Role role)
+        {
+            return new RoleStringy()
+            {
+                Guild = role.Guild.ToString(),
+                Level = role.Level,
+                RoleId = role.RoleId.ToString(),
+                RoleName = role.RoleName
+            };
+        }
+
+        public static RankStringy StringifyRank(Rank rank)
+        {
+            return new RankStringy()
+            {
+                LastCreditDate = rank.LastCreditDate,
+                Messages = rank.Messages,
+                NextXp = rank.NextXp,
+                Level = rank.Level,
+                TotalXp = rank.TotalXp,
+                Xp = rank.Xp,
+                Guild = rank.Guild.ToString(),
+                User = rank.User.ToString(),
+                Username = rank.Username,
+                Discriminator = rank.Discriminator,
+                Avatar = rank.Avatar,
+                Style = rank.Style
+            };
         }
     }
 }
