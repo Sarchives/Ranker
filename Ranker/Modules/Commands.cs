@@ -77,8 +77,8 @@ namespace Ranker
                 x.DrawText(textOptions3, gottenXp + " / " + maxXp + " XP", Color.White)
             );
 
-            var paths = Extensions.GoodBuildCorners(836, 5, 4).Transform(Matrix3x2.CreateTranslation(51, 179));
-            var paths2 = Extensions.GoodBuildCorners((int)(678 * (gottenXp * 100 / maxXp)) / 100, 5, 4).Transform(Matrix3x2.CreateTranslation(51, 179));
+            var paths = Extentions.GoodBuildCorners(836, 5, 4).Transform(Matrix3x2.CreateTranslation(51, 179));
+            var paths2 = Extentions.GoodBuildCorners((int)(678 * (gottenXp * 100 / maxXp)) / 100, 5, 4).Transform(Matrix3x2.CreateTranslation(51, 179));
 
             image.Mutate(x => x.Fill(Color.White, paths));
             image.Mutate(x => x.Fill(Color.FromRgb(0, 166, 234), paths2));
@@ -101,7 +101,7 @@ namespace Ranker
                 Size = new Size(80, 80)
             }));
 
-            Image pfpRound = Extensions.RoundCorners(propic, 40);
+            Image pfpRound = Extentions.RoundCorners(propic, 40);
 
             image.Mutate(x => x.DrawImage(pfpRound, new Point(51, 89), 1f));
 
@@ -142,7 +142,7 @@ namespace Ranker
             var frontCardBackground = new Rectangle(0, 0, 934, 242);
             frontCard.Mutate(x => x.Fill(Color.Black, frontCardBackground));
 
-            image.Mutate(x => x.DrawImage(Extensions.RoundBottom(frontCard, 30), 1f));
+            image.Mutate(x => x.DrawImage(Extentions.RoundBottom(frontCard, 30), 1f));
 
             FontCollection fonts = new FontCollection();
             var metropolis = fonts.Add("./Fonts/Metropolis/Metropolis-Regular.ttf");
@@ -170,7 +170,7 @@ namespace Ranker
             Image userInfoCard = new Image<Rgba32>(usernameContainer.Width, usernameContainer.Height);
 
             userInfoCard.Mutate(x => x.Fill(Color.FromRgb(50, 169, 229), usernameContainer));
-            userInfoCard = Extensions.RoundBottomRight(userInfoCard, 20);
+            userInfoCard = Extentions.RoundBottomRight(userInfoCard, 20);
 
             image.Mutate(x => x.DrawImage(userInfoCard, 1f));
 
@@ -229,7 +229,7 @@ namespace Ranker
                 Size = new Size(130, 130)
             }));
 
-            Image pfpRound = Extensions.RoundCorners(propic, 69);
+            Image pfpRound = Extentions.RoundCorners(propic, 69);
 
             image.Mutate(x => x.DrawImage(pfpRound, new Point(18, 18), 1f));
 
