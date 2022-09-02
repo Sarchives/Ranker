@@ -87,14 +87,14 @@ namespace Ranker
 
                 using (HttpClient httpClient = new HttpClient())
                 {
-                    var propic = Image.Load(await (await httpClient.GetAsync("https://cdn.discordapp.com/embed/avatars/1.png")).Content.ReadAsByteArrayAsync());
+                    var propic = Image.Load<Rgba32>(await (await httpClient.GetAsync("https://cdn.discordapp.com/embed/avatars/1.png")).Content.ReadAsByteArrayAsync());
                     try
                     {
-                        propic = Image.Load(await (await httpClient.GetAsync(pfpUrl)).Content.ReadAsByteArrayAsync());
+                        propic = Image.Load<Rgba32>(await (await httpClient.GetAsync(pfpUrl)).Content.ReadAsByteArrayAsync());
                     }
                     catch
                     {
-                        propic = Image.Load(await (await httpClient.GetAsync("https://cdn.discordapp.com/embed/avatars/1.png")).Content.ReadAsByteArrayAsync());
+                        propic = Image.Load<Rgba32>(await (await httpClient.GetAsync("https://cdn.discordapp.com/embed/avatars/1.png")).Content.ReadAsByteArrayAsync());
                     }
 
                     propic.Mutate(x => x.Resize(new ResizeOptions()
@@ -218,14 +218,14 @@ namespace Ranker
 
                     using (HttpClient httpClient = new HttpClient())
                     {
-                        var propic = Image.Load(await (await httpClient.GetAsync("https://cdn.discordapp.com/embed/avatars/1.png")).Content.ReadAsByteArrayAsync());
+                        var propic = Image.Load<Rgba32>(await (await httpClient.GetAsync("https://cdn.discordapp.com/embed/avatars/1.png")).Content.ReadAsByteArrayAsync());
                         try
                         {
-                            propic = Image.Load(await (await httpClient.GetAsync(pfpUrl)).Content.ReadAsByteArrayAsync());
+                            propic = Image.Load<Rgba32>(await (await httpClient.GetAsync(pfpUrl)).Content.ReadAsByteArrayAsync());
                         }
                         catch
                         {
-                            propic = Image.Load(await (await httpClient.GetAsync("https://cdn.discordapp.com/embed/avatars/1.png")).Content.ReadAsByteArrayAsync());
+                            propic = Image.Load<Rgba32>(await (await httpClient.GetAsync("https://cdn.discordapp.com/embed/avatars/1.png")).Content.ReadAsByteArrayAsync());
                         }
 
                         propic.Mutate(x => x.Resize(new ResizeOptions()
