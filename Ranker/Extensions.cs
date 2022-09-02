@@ -6,7 +6,7 @@ using SixLabors.ImageSharp.Processing;
 
 namespace Ranker
 {
-    public class Extentions
+    public class Extensions
     {
         // By @Ahmed605
 
