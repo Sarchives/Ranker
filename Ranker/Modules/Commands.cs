@@ -92,7 +92,7 @@ namespace Ranker
             }
             catch
             {
-                propic = Image.Load<Rgba32>(await (await httpClient.GetAsync("https://cdn.discordapp.com/embed/avatars/1.png")).Content.ReadAsByteArrayAsync());
+                // TODO: add "fancy" logging again.
             }
 
             propic.Mutate(x => x.Resize(new ResizeOptions()
@@ -213,13 +213,14 @@ namespace Ranker
             using HttpClient httpClient = new();
 
             var propic = Image.Load<Rgba32>(await (await httpClient.GetAsync("https://cdn.discordapp.com/embed/avatars/1.png")).Content.ReadAsByteArrayAsync());
+            
             try
             {
                 propic = Image.Load<Rgba32>(await (await httpClient.GetAsync(pfpUrl)).Content.ReadAsByteArrayAsync());
             }
             catch
             {
-                propic = Image.Load<Rgba32>(await (await httpClient.GetAsync("https://cdn.discordapp.com/embed/avatars/1.png")).Content.ReadAsByteArrayAsync());
+                // TODO: Add "fancy" logging
             }
 
             propic.Mutate(x => x.Resize(new ResizeOptions()
