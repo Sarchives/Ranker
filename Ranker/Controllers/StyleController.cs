@@ -61,7 +61,7 @@ namespace Ranker
                     using (StreamReader stream = new StreamReader(Request.Body))
                     {
                         string style = JObject.Parse(await stream.ReadToEndAsync())["style"].Value<string>();
-                        if (style == "zeealeid" || style == "fleuron" || style == "custom")
+                        if (style == "zeealeid" || style == "fleuron")
                         {
                             rankCard.Style = style;
                             await _database.Ranks.UpsertAsync(userId, guildId, rankCard, null);

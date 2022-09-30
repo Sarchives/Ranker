@@ -28,14 +28,14 @@ namespace Ranker
                     string responseJson = await response.Content.ReadAsStringAsync();
                     JToken jsonParsed = JToken.Parse(responseJson);
 
-                    List<Rank> ranks = (await _database.Ranks.GetAsync(id))
-                        .OrderByDescending(f => f.TotalXp)
-                        .ToList();
-
-                    if (ranks.Count > 100)
+                    List<Rank> ranks = new List<Rank> { };
+                    try
                     {
-                        ranks = ranks.Chunk(100).ElementAt(page).ToList();
-                    }
+                        ranks = (await _database.Ranks.GetAsync(id))
+                        .OrderByDescending(f => f.TotalXp)
+                        .Chunk(100)
+                        .ElementAt(page).ToList();
+                    } catch { }
 
                     Settings settings = await _database.Settings.GetAsync(id);
 

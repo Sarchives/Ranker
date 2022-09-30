@@ -34,12 +34,8 @@ namespace Ranker
                 {
                     stream = await Commands.RankFleuron(_database, ctx.Guild, user, rank);
                 }
-                else if (currentUserRank.Style == "zeealeid")
+                else
                 {
-                    stream = await Commands.RankZeealeid(_database, ctx.Guild, user, rank);
-                } else
-                {
-                    // CHANGE!!!
                     stream = await Commands.RankZeealeid(_database, ctx.Guild, user, rank);
                 }
 
@@ -71,13 +67,8 @@ namespace Ranker
                 {
                     stream = await Commands.RankFleuron(_database, ctx.Guild, ctx.TargetMember, rank);
                 }
-                else if (currentUserRank.Style == "zeealeid")
-                {
-                    stream = await Commands.RankZeealeid(_database, ctx.Guild, ctx.TargetMember, rank);
-                }
                 else
                 {
-                    // CHANGE!!!
                     stream = await Commands.RankZeealeid(_database, ctx.Guild, ctx.TargetMember, rank);
                 }
 
@@ -112,9 +103,7 @@ namespace Ranker
             [ChoiceName("Zeealeid (default)")]
             zeealeid,
             [ChoiceName("Fleuron")]
-            fleuron,
-            [ChoiceName("Custom (HTML/CSS)")]
-            custom
+            fleuron
         }
 
         [SlashCommand("style", "Changes the rank card style.")]
@@ -148,15 +137,6 @@ namespace Ranker
                 await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("Leaderboard setup not completed!"));
             }
         }
-
-          [SlashCommand("easter", "egg")]
-          public async Task EasterCommand(InteractionContext ctx)
-          {
-              await ctx.CreateResponseAsync(
-                  InteractionResponseType.DeferredChannelMessageWithSource,
-                  new DiscordInteractionResponseBuilder().AsEphemeral(true));
-              await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("https://www.youtube.com/watch?v=CBpSGsT7L6s"));
-          }
 
         [SlashCommandGroup("migrate", "Migrates data.")]
         [RequireBotOwnerOrAdmin]
