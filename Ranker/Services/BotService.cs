@@ -60,8 +60,6 @@ namespace Ranker
 
             prefixes.Add(Environment.GetEnvironmentVariable("PREFIX"));
 
-            Console.WriteLine(Environment.GetEnvironmentVariable("PREFIX"));
-
             var commands = client.UseCommandsNext(new CommandsNextConfiguration()
             {
                 StringPrefixes = prefixes,
