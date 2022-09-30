@@ -41,11 +41,9 @@ if (!Directory.Exists(folder))
     Directory.CreateDirectory(folder);
 }
 
-ConfigJson configJson = JsonConvert.DeserializeObject<ConfigJson>(File.ReadAllText("config.json"));
 IRankerRepository database = new SQLiteRankerRepository(Path.Combine(folder, "Ranker.db"));
 
 builder.Services.AddSingleton(database);
-builder.Services.AddSingleton(configJson);
 
 builder.Services.AddHostedService<BotService>();
 
