@@ -3,11 +3,8 @@
     [Route("[controller]")]
     public class TokenController : Controller
     {
-        ConfigJson configJson;
-
-        public TokenController(ConfigJson config)
+        public TokenController()
         {
-            configJson = config;
         }
 
         [HttpGet]
@@ -18,11 +15,11 @@
                 using (HttpClient client = new())
                 {
                     Dictionary<string, string> dictionary = new Dictionary<string, string>() {
-                        { "client_id", configJson.ClientId },
+                        { "client_id", Environment.GetEnvironmentVariable("CLIENT_ID") },
                         { "client_secret", Environment.GetEnvironmentVariable("RANKER_CLIENT_SECRET") },
                         { "grant_type", "authorization_code" },
                         { "code", Request.Headers["Code"] },
-                        { "redirect_uri", configJson.Domain + "/callback" },
+                        { "redirect_uri", Environment.GetEnvironmentVariable("DOMAIN") + "/callback" },
                         { "scope", "identify guilds" }
                     };
 

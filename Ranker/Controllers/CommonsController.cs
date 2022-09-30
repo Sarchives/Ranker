@@ -3,11 +3,8 @@
     [Route("[controller]")]
     public class CommonsController : Controller
     {
-        ConfigJson configJson;
-
-        public CommonsController(ConfigJson config)
+        public CommonsController()
         {
-            configJson = config;
         }
 
         [HttpGet]
@@ -60,7 +57,7 @@
                             new AuthenticationHeaderValue(
                                 "Bot",
                                     Environment.GetEnvironmentVariable("RANKER_TOKEN"));
-                        var response = await client.GetAsync("https://discord.com/api/v9/guilds/" + configJson.GuildId.ToString());
+                        var response = await client.GetAsync("https://discord.com/api/v9/guilds/" + Environment.GetEnvironmentVariable("GUILD_ID"));
                         string responseJson = await response.Content.ReadAsStringAsync();
                         JObject jsonParsed = JObject.Parse(responseJson);
 

@@ -13,11 +13,9 @@ namespace Ranker
     {
         DiscordClient client;
         IRankerRepository database;
-        ConfigJson configJson;
 
-        public BotService(ConfigJson config, IRankerRepository database)
+        public BotService(IRankerRepository database)
         {
-            configJson = config;
             this.database = database;
         }
 
@@ -54,11 +52,11 @@ namespace Ranker
                         .AsEphemeral(true));
             };
 
-            slashCommands.RegisterCommands<SlashCommands>(configJson.GuildId);
+            slashCommands.RegisterCommands<SlashCommands>(Convert.ToUInt64(Environment.GetEnvironmentVariable("GUILD_ID")));
 
             var commands = client.UseCommandsNext(new CommandsNextConfiguration()
             {
-                StringPrefixes = configJson.Prefixes,
+                StringPrefixes = new List<string>() { Environment.GetEnvironmentVariable("PREFIX") },
                 Services = servCollection.BuildServiceProvider()
             });
 
