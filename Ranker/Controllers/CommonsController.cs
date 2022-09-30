@@ -74,7 +74,9 @@
                     return Ok(new Dictionary<string, string>() { });
                 }
             }
-            catch { }
+            catch {
+                return StatusCode(500);
+            }
         }
     }
 }
