@@ -32,13 +32,8 @@ namespace Ranker
                 {
                     stream = await Commands.RankFleuron(_database, ctx.Guild, user, rank);
                 }
-                else if (currentUserRank.Style == "zeealeid")
-                {
-                    stream = await Commands.RankZeealeid(_database, ctx.Guild, user, rank);
-                }
                 else
                 {
-                    // CHANGE!!!
                     stream = await Commands.RankZeealeid(_database, ctx.Guild, user, rank);
                 }
 
