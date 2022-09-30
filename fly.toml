@@ -30,3 +30,7 @@ processes = []
   [[services.ports]]
     handlers = ["tls", "http"]
     port = 443
+
+[mounts]
+  source="database"
+  destination="~/.ranker"
