@@ -52,7 +52,10 @@ namespace Ranker
                         .AsEphemeral(true));
             };
 
-            slashCommands.RegisterCommands<SlashCommands>(Convert.ToUInt64(Environment.GetEnvironmentVariable("GUILD_ID")));
+            // Use this if you're running locally
+            //slashCommands.RegisterCommands<SlashCommands>(Convert.ToUInt64(Environment.GetEnvironmentVariable("GUILD_ID")));
+
+            slashCommands.RegisterCommands<SlashCommands>();
 
             var commands = client.UseCommandsNext(new CommandsNextConfiguration()
             {
