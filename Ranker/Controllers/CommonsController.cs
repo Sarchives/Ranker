@@ -23,6 +23,7 @@
                         var response = await client.GetAsync("https://discord.com/api/v9/users/@me/guilds");
                         string responseJson = await response.Content.ReadAsStringAsync();
                         JArray jsonParsed = JArray.Parse(responseJson);
+                        Console.WriteLine(jsonParsed);
 
                         using (HttpClient client2 = new())
                         {
