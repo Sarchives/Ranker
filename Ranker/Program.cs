@@ -64,4 +64,4 @@ app.UseEndpoints(endpoints =>
     endpoints.MapControllers();
 });
 
-await app.RunAsync("ranker.fly.dev");
+await app.RunAsync("0.0.0.0");
