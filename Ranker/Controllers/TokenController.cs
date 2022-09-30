@@ -14,6 +14,7 @@
             {
                 using (HttpClient client = new())
                 {
+                    Console.WriteLine(Environment.GetEnvironmentVariable("CLIENT_ID") + "dog");
                     Dictionary<string, string> dictionary = new Dictionary<string, string>() {
                         { "client_id", Environment.GetEnvironmentVariable("CLIENT_ID") },
                         { "client_secret", Environment.GetEnvironmentVariable("RANKER_CLIENT_SECRET") },
