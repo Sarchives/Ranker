@@ -71,7 +71,7 @@
                     }
                 } else
                 {
-                    return Ok(new Dictionary<string, string>() { });
+                    return Ok(new List<string> { });
                 }
             }
             catch {
