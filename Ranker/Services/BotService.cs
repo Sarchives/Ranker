@@ -56,9 +56,16 @@ namespace Ranker
 
             slashCommands.RegisterCommands<SlashCommands>(localGuildId != null ? Convert.ToUInt64(localGuildId) : null);
 
+            var prefixes = new List<string>();
+
+            prefixes.Add(Environment.GetEnvironmentVariable("PREFIX"));
+
+            Console.WriteLine(Environment.GetEnvironmentVariable("PREFIX"));
+
             var commands = client.UseCommandsNext(new CommandsNextConfiguration()
             {
-                StringPrefixes = new List<string>() { Environment.GetEnvironmentVariable("PREFIX") },
+                StringPrefixes = prefixes,
+                EnableMentionPrefix = true,
                 Services = servCollection.BuildServiceProvider()
             });
 
