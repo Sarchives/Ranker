@@ -17,6 +17,7 @@ namespace Ranker
         [Command("rank")]
         public async Task RankCommand(CommandContext ctx, DiscordUser user = null)
         {
+            Console.WriteLine("HEY THERE THE COMMAND IS RUNNING!");
             await ctx.Message.DeleteAsync();
             if (user == null)
             {
