@@ -11,5 +11,5 @@ FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 COPY Ranker/Fonts .
 COPY --from=build-env /app/out .
-ENTRYPOINT ["dotnet", "Ranker.dll"]
 ENV PORT 8080
+ENTRYPOINT ["dotnet", "Ranker.dll"]
