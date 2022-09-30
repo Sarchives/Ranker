@@ -23,7 +23,6 @@
                         var response = await client.GetAsync("https://discord.com/api/v9/users/@me/guilds");
                         string responseJson = await response.Content.ReadAsStringAsync();
                         JArray jsonParsed = JArray.Parse(responseJson);
-                        Console.WriteLine(jsonParsed);
 
                         using (HttpClient client2 = new())
                         {
@@ -61,6 +60,7 @@
                         var response = await client.GetAsync("https://discord.com/api/v9/guilds/" + Environment.GetEnvironmentVariable("GUILD_ID"));
                         string responseJson = await response.Content.ReadAsStringAsync();
                         JObject jsonParsed = JObject.Parse(responseJson);
+                        Console.WriteLine(jsonParsed.ToString());
 
                         return Ok(
                             new Dictionary<string, string>(){
