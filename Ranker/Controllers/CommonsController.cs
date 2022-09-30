@@ -71,8 +71,9 @@
                     }
                 }
             }
-            catch
+            catch(Exception dog)
             {
+                Console.WriteLine(dog.Message);
                 return StatusCode(500);
             }
         }
