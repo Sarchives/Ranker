@@ -9,8 +9,8 @@ jobs:
       steps:
         - uses: actions/checkout@v2
         - uses: superfly/flyctl-actions/setup-flyctl@master
-        - name: sdogogogokjtgtjitgbjrrtkg
-          run:  ls
+        - name: Initialize submodules
+          run: git submodule update --init
         - name: Set secrets
           run: flyctl secrets set RANKER_TOKEN="${{ secrets.BOT_TOKEN }}" && flyctl secrets set RANKER_TOKEN_CLIENT_SECRET="${{ secrets.BOT_SECRET }}"
         - name: Deploy app
