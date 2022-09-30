@@ -198,7 +198,7 @@ namespace Ranker
             await ctx.EditResponseAsync(webhook);
         }
 
-        [SlashCommand("range", "Changes range of XP winned.")]
+        [SlashCommand("range", "Changes how much XP is won every minute.")]
         [SlashRequireUserPermissions(Permissions.ManageGuild)]
         public async Task RangeCommand(InteractionContext ctx, [Option("min", "Minimum XP that can be win")] long min, [Option("max", "Maximum XP that can be win")] long max)
         {
