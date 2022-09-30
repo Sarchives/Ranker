@@ -12,3 +12,4 @@ WORKDIR /app
 COPY Ranker/Fonts .
 COPY --from=build-env /app/out .
 ENTRYPOINT ["dotnet", "Ranker.dll"]
+ENV PORT 8080
