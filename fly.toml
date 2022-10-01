@@ -33,4 +33,4 @@ processes = []
 
 [mounts]
   source="database"
-  destination="~/.ranker"
+  destination="/root/.ranker"
