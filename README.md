@@ -3,7 +3,7 @@
 ![CodeQL workflow status](https://github.com/Ranker-Team/Ranker/actions/workflows/codeql-analysis.yml/badge.svg)
 [![CodeFactor](https://www.codefactor.io/repository/github/ranker-team/ranker/badge)](https://www.codefactor.io/repository/github/ranker-team/ranker)
 
-Ranker is a Discord ranking bot. It offers two rank card styles and a leaderboard.
+Ranker - the ranking bot that makes switching magical, customisable, and completely open.
 
 Discord: https://discord.gg/SXxJTvmAz3
 
