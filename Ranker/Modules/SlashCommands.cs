@@ -124,7 +124,7 @@ namespace Ranker
         [SlashCommand("levels", "Send leaderboard.")]
         public async Task LevelsCommand(InteractionContext ctx)
         {
-            string domain = Environment.GetEnvironmentVariable("DOMAIN");
+            string domain = Environment.GetEnvironmentVariable("RANKER_DOMAIN");
             await ctx.CreateResponseAsync(
                 InteractionResponseType.DeferredChannelMessageWithSource,
                 new DiscordInteractionResponseBuilder().AsEphemeral(true));

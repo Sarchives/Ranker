@@ -1,5 +1,7 @@
 ﻿using DSharpPlus;
 using DSharpPlus.CommandsNext;
+using DSharpPlus.CommandsNext.Converters;
+using DSharpPlus.CommandsNext.Entities;
 using DSharpPlus.Entities;
 using DSharpPlus.SlashCommands;
 using Microsoft.Extensions.DependencyInjection;
@@ -9,6 +11,17 @@ using System.Threading;
 
 namespace Ranker
 {
+    public class CustomHelpFormatter : DefaultHelpFormatter
+    {
+        public CustomHelpFormatter(CommandContext ctx) : base(ctx) { }
+
+        public override CommandHelpMessage Build()
+        {
+            EmbedBuilder.AddField("More commands", "Most of our commands are slash commands, type / to see them on Discord.");
+            return base.Build();
+        }
+    }
+
     public class BotService : IHostedService
     {
         DiscordClient client;
@@ -52,13 +65,13 @@ namespace Ranker
                         .AsEphemeral(true));
             };
 
-            var localGuildId = Environment.GetEnvironmentVariable("GUILD_ID");
+            var localGuildId = Environment.GetEnvironmentVariable("RANKER_GUILD_ID");
 
             slashCommands.RegisterCommands<SlashCommands>(localGuildId != null ? Convert.ToUInt64(localGuildId) : null);
 
             var prefixes = new List<string>();
 
-            prefixes.Add(Environment.GetEnvironmentVariable("PREFIX"));
+            prefixes.Add(Environment.GetEnvironmentVariable("RANKER_PREFIX"));
 
             var commands = client.UseCommandsNext(new CommandsNextConfiguration()
             {
@@ -66,6 +79,8 @@ namespace Ranker
                 EnableMentionPrefix = true,
                 Services = servCollection.BuildServiceProvider()
             });
+
+            commands.SetHelpFormatter<CustomHelpFormatter>();
 
             commands.RegisterCommands<NormalCommands>();
 

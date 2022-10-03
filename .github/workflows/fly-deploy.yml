@@ -12,6 +12,6 @@ jobs:
         - name: Initialize submodules
           run: git submodule update --init
         - name: Set secrets
-          run: flyctl secrets set RANKER_TOKEN="${{ secrets.BOT_TOKEN }}" && flyctl secrets set RANKER_CLIENT_SECRET="${{ secrets.BOT_SECRET }}" && flyctl secrets set PREFIX='${{ secrets.PREFIX }}' && flyctl secrets set DOMAIN="${{ secrets.DOMAIN }}" && flyctl secrets set CLIENT_ID="${{ secrets.CLIENT_ID }}"
+          run: flyctl secrets set RANKER_TOKEN="${{ secrets.BOT_TOKEN }}" && flyctl secrets set RANKER_CLIENT_SECRET="${{ secrets.BOT_SECRET }}" && flyctl secrets set RANKER_PREFIX='${{ secrets.PREFIX }}' && flyctl secrets set RANKER_DOMAIN="${{ secrets.DOMAIN }}" && flyctl secrets set RANKER_CLIENT_ID="${{ secrets.CLIENT_ID }}"
         - name: Deploy app
           run: flyctl deploy --remote-only

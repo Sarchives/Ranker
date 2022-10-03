@@ -15,11 +15,11 @@
                 using (HttpClient client = new())
                 {
                     Dictionary<string, string> dictionary = new Dictionary<string, string>() {
-                        { "client_id", Environment.GetEnvironmentVariable("CLIENT_ID") },
+                        { "client_id", Environment.GetEnvironmentVariable("RANKER_CLIENT_ID") },
                         { "client_secret", Environment.GetEnvironmentVariable("RANKER_CLIENT_SECRET") },
                         { "grant_type", "authorization_code" },
                         { "code", Request.Headers["Code"] },
-                        { "redirect_uri", Environment.GetEnvironmentVariable("DOMAIN") + "/callback" },
+                        { "redirect_uri", Environment.GetEnvironmentVariable("RANKER_DOMAIN") + "/callback" },
                         { "scope", "identify guilds" }
                     };
 

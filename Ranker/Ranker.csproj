@@ -14,9 +14,6 @@
     <PackageReference Include="SQLitePCLRaw.bundle_e_sqlite3" Version="2.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <None Update="config.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None> 
     <None Update="Fonts\**\*.*">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

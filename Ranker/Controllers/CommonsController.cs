@@ -49,7 +49,7 @@
                         }
                     }
                 }
-                else if (Environment.GetEnvironmentVariable("GUILD_ID") != null)
+                else if (Environment.GetEnvironmentVariable("RANKER_GUILD_ID") != null)
                 {
                     using (HttpClient client = new())
                     {
@@ -57,7 +57,7 @@
                             new AuthenticationHeaderValue(
                                 "Bot",
                                     Environment.GetEnvironmentVariable("RANKER_TOKEN"));
-                        var response = await client.GetAsync("https://discord.com/api/v9/guilds/" + Environment.GetEnvironmentVariable("GUILD_ID"));
+                        var response = await client.GetAsync("https://discord.com/api/v9/guilds/" + Environment.GetEnvironmentVariable("RANKER_GUILD_ID"));
                         string responseJson = await response.Content.ReadAsStringAsync();
                         JObject jsonParsed = JObject.Parse(responseJson);
 
