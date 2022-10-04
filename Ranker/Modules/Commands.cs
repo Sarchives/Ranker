@@ -25,7 +25,7 @@ namespace Ranker
             ulong gottenXp = rank.Xp;
             ulong maxXp = rank.NextXp;
 
-            var list = (await _database.Ranks.GetAsync(guild.Id)).OrderByDescending(f => f.Xp).ToList();
+            var list = (await _database.Ranks.GetAsync(guild.Id)).OrderByDescending(f => f.TotalXp).ToList();
 
             int leader = list.IndexOf(list.FirstOrDefault(f => f.User == user.Id)) + 1;
 
@@ -125,7 +125,7 @@ namespace Ranker
             ulong gottenXp = rank.Xp;
             ulong maxXp = rank.NextXp;
 
-            var list = (await _database.Ranks.GetAsync(guild.Id)).OrderByDescending(f => f.Xp).ToList();
+            var list = (await _database.Ranks.GetAsync(guild.Id)).OrderByDescending(f => f.TotalXp).ToList();
 
             int leader = list.IndexOf(list.FirstOrDefault(f => f.User == user.Id)) + 1;
 
