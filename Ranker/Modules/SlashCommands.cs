@@ -250,5 +250,18 @@ namespace Ranker
                 await ctx.EditResponseAsync(new DiscordWebhookBuilder().WithContent("The channel is not excluded!"));
             }
         }
+
+        [SlashCommand("about", "Shows bot information.")]
+        public async Task AboutCommand(InteractionContext ctx)
+        {
+            DiscordInteractionResponseBuilder embed = new DiscordInteractionResponseBuilder();
+            embed.AddEmbed(new DiscordEmbedBuilder().WithTitle("About Ranker")
+                .WithColor(0x007FFF)
+                .AddField("Website (and invite)", "https://rankerbot.xyz")
+                .AddField("GitHub", "https://github.com/Ranker-Team")
+                .AddField("More...", "Soon, perhaps.")
+                .Build());
+            await ctx.CreateResponseAsync(InteractionResponseType.ChannelMessageWithSource, embed);
+        }
     }
 }
